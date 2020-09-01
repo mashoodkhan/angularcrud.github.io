@@ -1,0 +1,19 @@
+<table class="table table-bordered">
+    <thead>
+        <th>BOOKNAME</th>
+        <th>AUTHOR</th>
+        <th>CATEGORY</th>
+        <th>EDIT</th>
+        <th>DELETE</th>
+
+    </thead>
+    <tbody>
+        <tr *ngFor = "let book of list">
+            <td>{{book.Bookname}}</td>
+            <td>{{book.author}}</td>
+            <td>{{book.category}}</td>
+            <td><a class = "text-info  ml-3" (click) = "Update(book)"><i class="fa fa-edit"></i></a></td>
+            <td><a class = "text-danger ml-3" (click) = "Delete(book.id)"><i class="fa fa-trash"></i></a></td>
+        </tr>
+    </tbody>
+</table>

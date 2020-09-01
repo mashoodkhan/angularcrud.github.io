@@ -1,0 +1,33 @@
+<h3 class="text-white bg-info p-3 text-center">Add Books here</h3>
+<form #form = "ngForm" (submit) = "onSubmit(form)">
+    <input type="hidden" name="id" #id = "ngModel" 
+    [(ngModel)] = "service.formData.id" class="form-control">
+    <div class="form-group">
+        <label for="bookname">Bookname:</label>
+        <input type="text" name="Bookname" #Bookname = "ngModel" 
+        [(ngModel)] = "service.formData.Bookname" class="form-control" 
+        required [class.is-invalid] = "Bookname.invalid && Bookname.touched">
+    </div>
+
+    <div class="form-group">
+        <label for="author">Author name:</label>
+        <input type="text" name = "author" #author = "ngModel" 
+        [(ngModel)] = "service.formData.author" class="form-control"
+        required [class.is-invalid] = "author.invalid && author.touched">
+    </div>
+
+  <div class="form-group">
+      <select name="category" #category = "ngModel"
+      [(ngModel)] = "service.formData.category"
+      class="form-control" required
+      [class.is-invalid] = "category.invalid && category.touched">
+      <option value="" selected class="form-control">Choose category</option>
+      <option *ngFor = "let category of categories"
+      class="form-control">{{category}}</option>
+    </select>
+  </div>
+    <div class="form-group">
+        <input type="submit" class="btn btn-block btn-success"
+        [disabled] = "!form.valid">
+    </div>
+</form>
